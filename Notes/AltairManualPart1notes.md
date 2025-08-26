@@ -9,6 +9,12 @@
 - As a user gets more experience with the machine, it will get easier to use
 
 ## A. Logic
+- George Boole showed how logical statements can be analyzed through arithmetics by assuming a statement is either true or false
+- AND: true if all conditions are true
+- OR: true if any conditions are true
+- NOT: reverses the meaning
+- Truth tables can be used to show the output of logical expressions
+
 ## B. Electronic Logic
 ## C. Number Systems
 ## D. The Binary System
