@@ -1,4 +1,4 @@
-# Altair 8000 Manual Notes
+# Altair 8800 Manual Notes
 ## Introduction
 ## A. Logic
 ## B. Electronic Logic
