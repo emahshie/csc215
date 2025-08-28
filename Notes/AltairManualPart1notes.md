@@ -30,7 +30,7 @@
   
 ## C. Number Systems
 - Number systems can be based on different numbers to be more compatible with computers
-- 
+  
 ## D. The Binary System
 * The altair uses binary calculations
 * one number contains 8 bits
