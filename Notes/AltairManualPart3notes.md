@@ -27,5 +27,12 @@
   - STACK: holds the Stack Pointer’s push-down stack address
   - WO: operation in the cycle will be a write memory or output function. Otherwise, a read memory or input operation will occur
   - INT: an interrupt request has been acknowledged
-
-
+## B
+## C
+- Machine language requires the programmer to keep track of memory
+- Memory mapping: a technique where you assign various types of data to certain blocks of memory reserved for a specific purpose
+- Make a table to record where items are stored
+- Be sure to update the table when changes are made
+## D
+- The Altair 8800 uses various memory addressing methods, including **direct addressing**, **register pair addressing**, **Stack Pointer addressing**, **immediate addressing**, and **stack addressing of subroutines**. Each method involves specific instructions and memory management techniques, which are crucial for effective programming.
+## E
