@@ -1,1 +1,31 @@
+# Altair Manual Part 3 Notes
+## A. The front panel switches and LEDs
+- The front panel has 25 switches and 36 indicators, but can be operated with  just 15 switches and 16 indicators
+- Front panel switches
+  - ON-OFF: applies power/cuts off power and erases memory
+  - STOP-RUN: stop program execution/start program execution
+  - SINGLE STEP: implements a single machine language instruction
+  - EXAMINE-EXAMINE NEXT: displays contents of a memory address/displays content of the next memory address
+  - DEPOSIT-DEPOSIT NEXT: loads the data byte into memory address/loads the data byte into the next memory address
+  - RESET-CLR: sets the Program Counter to the first memory address (goes to the first step of a program)/clears external equipment
+  - PROTECT-UNPROTECT: prevents memory contents from being changed/allows memory contents to be changed
+  - AUX: available for use with peripherals added to the basic machine
+  - DATA/ADDRESS: up means a 1 bit, down means a 0 bit
+- Indicator LEDs
+  - ADDRESS: denotes the memory address being examined or loaded with data
+  - DATA: denotes the data in the specified memory address
+  - INTE: when on an interrupt has been enabled
+  - PROT: when on the memory is protected
+  - WAIT: when on the CPU is in a wait state
+  - HLDA: when on a hold has been acknowledged
+- Status LEDs - when on
+  - MEMR: the memory bus will be used
+  - INP: input data on the data bus
+  - M1: the CPU is processing the first machine cycle
+  - OUT: contains the address of an output device
+  - HLTA: a halt instruction has been executed and acknowledged
+  - STACK: holds the Stack Pointer’s push-down stack address
+  - WO: operation in the cycle will be a write memory or output function. Otherwise, a read memory or input operation will occur
+  - INT: an interrupt request has been acknowledged
+
 
