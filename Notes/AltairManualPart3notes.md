@@ -28,6 +28,22 @@
   - WO: operation in the cycle will be a write memory or output function. Otherwise, a read memory or input operation will occur
   - INT: an interrupt request has been acknowledged
 ## B
+- LDA: Load the acumulator
+- MOV: move acumulator contence to register
+- ADD: add Acumulator to register then saves in Acumulator
+- STA: stores Acumulator to memory adress
+- JMP: go to start of program
+- Adding program: LDA, MOV, STA, LDA, ADD, STA, JMP
+
+- here is all the bit paterns for each of the commands
+  
+![bit map](bitpatern.png)
+
+- he is the steps for entering it
+
+  
+ ![steps](image.png)
+
 ## C
 - Machine language requires the programmer to keep track of memory
 - Memory mapping: a technique where you assign various types of data to certain blocks of memory reserved for a specific purpose
@@ -36,3 +52,7 @@
 ## D
 - The Altair 8800 uses various memory addressing methods, including **direct addressing**, **register pair addressing**, **Stack Pointer addressing**, **immediate addressing**, and **stack addressing of subroutines**. Each method involves specific instructions and memory management techniques, which are crucial for effective programming.
 ## E
+- some methods to help speed up altaire usage
+    - always proof read you programs by resseting the the first memory location of the program and reading though and checking to make sure everything is correct and fixing it if it isnt
+    - if you need more steps later and you already added some NOP(No OPeration) it is much easier to just add the steps instead of a NOP
+    - when debuging you can use a single step switch to go though the code step by step and examin the memory
