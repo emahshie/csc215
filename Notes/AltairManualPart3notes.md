@@ -35,15 +35,6 @@
 - JMP: go to start of program
 - Adding program: LDA, MOV, STA, LDA, ADD, STA, JMP
 
-- here is all the bit paterns for each of the commands
-  
-![bit map](bitpatern.png)
-
-- he is the steps for entering it
-
-  
- ![steps](image.png)
-
 ## C
 - Machine language requires the programmer to keep track of memory
 - Memory mapping: a technique where you assign various types of data to certain blocks of memory reserved for a specific purpose
