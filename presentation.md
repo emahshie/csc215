@@ -41,4 +41,4 @@
 | 0118  | 00    | 0000 0000         |                  | Address high byte              |
 | 0119  | 76    | 0111 0110         | HLT              | Halt program                   |
 
-New instruction: [ADC] (https://ubuntourist.codeberg.page/Altair-8800/part-4.html#adc) adds the value of a register (or memory) and the carry flag to the accumulator, allowing you to correctly add multi-byte numbers by including any overflow from a previous addition
+New instruction: ADC adds the value of a register (or memory) and the carry flag to the accumulator, allowing you to correctly add multi-byte numbers by including any overflow from a previous addition (https://ubuntourist.codeberg.page/Altair-8800/part-4.html#adc)
