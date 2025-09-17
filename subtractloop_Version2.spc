@@ -9,7 +9,6 @@
 06    # MVI B,xx ; B will be used for current value (but already set)
 16    # MVI D,00 ; D = 0, will hold count
 00
-START_LOOP:
 78    # MOV A,B ; Move current value to A
 91    # SUB C    ; Subtract low value
 47    # MOV B,A  ; Store result in B
@@ -20,7 +19,6 @@ FA    # JM END   ; Jump to END if result is negative (sign set)
 C3    # JMP START_LOOP
 09
 00
-END:
 7A    # MOV A,D  ; Move count to A
 32    # STA 12h  ; Store at 0x12
 12
