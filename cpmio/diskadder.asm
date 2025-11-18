@@ -187,6 +187,8 @@ ADDBUF: PUSH    H
         RET
 
 ; ADD CR/LF TO OUTPUT BUFFER
+; Note: the second call uses JMP (tail-call) so ADDBUF's RET
+; will return directly to ADDCR's caller (saves an extra RET).
 ADDCR:  MVI     A,CR
         CALL    ADDBUF
         MVI     A,LF
@@ -270,8 +272,10 @@ WRF3:   ; CLOSE FILE
         RET
 
 ; PARSE A DECIMAL NUMBER FROM BUFFER POINTED TO BY HL
-; INPUT: HL = pointer to buffer (at start of number)
-; OUTPUT: HL = parsed number value, DE = pointer to character after number
+; INPUT:  HL = pointer to buffer (at start of number)
+; OUTPUT: HL = parsed number value (16-bit), DE = pointer to character after number
+; TEMP:   BC is used as the parsing accumulator (BC <-> HL are swapped during parsing)
+; Note: caller should expect HL=result, DE=pointer on return.
 PRSNUM: PUSH    B
         LXI     B,0             ; CLEAR RESULT IN BC
         
@@ -484,6 +488,8 @@ CO:     PUSH    B               ; SAVE REGISTERS
 
 ; CARRIAGE RETURN, LINE FEED TO CONSOLE
 TWOCR:  CALL    CCRLF           ; DOUBLE SPACE LINES
+; CCRLF uses a tail-call JMP to CO for the LF so CO's RET
+; returns directly to CCRLF's caller (intentional optimization)
 CCRLF:  MVI     A,CR
         CALL    CO
         MVI     A,LF
@@ -578,4 +584,6 @@ STAK:   DB      0               ; TOP OF STACK
 SINON:  DB      'FILE ADDER - NOVEMBER 17, 2025',0
 
 ; FROM HERE THROUGH CCP IS BUFFER SPACE
+; BUFFR marks the start of the transient buffer used for file reads.
+; This buffer extends up to the CCP/TPA limit (assembly END stops here).
 BUFFR:  END
