@@ -1,3 +1,4 @@
+; Eleanor and Alex, CSC 215, 12/01/2025
 ; ASCII CHARACTERS
 CR      EQU     0DH             ; CARRIAGE RETURN
 LF      EQU     0AH             ; LINE FEED
