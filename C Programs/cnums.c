@@ -1,3 +1,4 @@
+/*Eleanor Mahshie*/
 #include <stdio.h>
 
 #define MAX_ARR_SIZE 80
@@ -62,6 +63,7 @@ char* argv[];
     }
 
     if (chrCount) {
+        line[chrCount] = '\0';  /* <-- Added: ensure the final partial line is null-terminated */
         printf("%d:%s%s\n", chrCount, multipleChr(' ', MAX_SPACE - getDigits(chrCount)), line);
     }
 
