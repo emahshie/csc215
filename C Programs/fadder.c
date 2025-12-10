@@ -1,4 +1,6 @@
-/* To run program after compiling:
+/* 
+Eleanor Mahshie and Alex Hamill
+To run program after compiling:
 Create two files: nums.txt & result.txt (can have any name)
 Prompt: fadder nums.txt result.txt
 Answer will be written into result.txt
