@@ -1,4 +1,6 @@
 /* Eleanor Mahshie */
+#include <stdio.h>
+#include "string.h"
 strcat(s, t) 
 char *s, *t; 
 {
