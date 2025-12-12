@@ -1,4 +1,6 @@
 /* Eleanor Mahshie */
+#include <stdio.h>
+
 char *itoa(int n, int t){
   char *s;
   char sign;
