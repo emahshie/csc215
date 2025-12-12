@@ -5,8 +5,10 @@ int atoi(char *t){
   s = t;
     
   int total;
+  total = 0;
+  
     while (*s >= '0' && *s <= '9'){
-      total = 10 * total + *s - '0';
+      total = 10 * total + (*s - '0');
       s++;
     }
   return total;
