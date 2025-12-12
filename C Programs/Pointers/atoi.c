@@ -1,4 +1,5 @@
 /* Eleanor Mahshie */
+#include <stdio.h>
 
 int atoi(char *t){
   char *s;
