@@ -9,7 +9,7 @@ char *strcat(char *x, char *y) {
   
     while (*s != '\0')
       s++;
-    while ((*s = *t != '\0')
+    while ((*s = *t) != '\0')
       ;
   return s;
 }
