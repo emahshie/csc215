@@ -16,4 +16,8 @@ main() {
     m = 3;
     prod = n * m;
     printf("%u * %u = %u -- Why?\n", m, n, prod);
+    prod = biggest * ubiggest;
+    printf("Multiply the two numbers to get %u!\n, prod);
+    prod = biggest / ubiggest;
+    printf("Divide the two numbers to get %u!\n, prod);
 }
