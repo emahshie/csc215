@@ -22,7 +22,7 @@ We could add another case value to the switch statement for the char 'C'. It wou
 
 **7. (AB only) How could the calculator be modified to allow the use of parentheses to control the order of operations?**
 
-It would accept a string of chars as input and parse through the string until it finds the innermost paranthesis. It would work out from the paranthesis performing the operations in order.
+It would accept a string of chars as input and parse through the string until it finds the innermost parenthesis. It would work out from the paranthesis performing the operations in order.
 
 ## Set 2
 **1. What are the largest and smallest integer values in the programming environment you use?**
