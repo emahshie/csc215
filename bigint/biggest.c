@@ -17,7 +17,14 @@ main() {
     prod = n * m;
     printf("%u * %u = %u -- Why?\n", m, n, prod);
     prod = biggest * ubiggest;
-    printf("Multiply the two numbers to get %u!\n, prod);
+    printf("Multiply the two numbers to get %u!\n", prod);
     prod = biggest / ubiggest;
-    printf("Divide the two numbers to get %u!\n, prod);
+    printf("Divide the two numbers to get %u!\n", prod);
+    prod = ubiggest / biggest;
+    printf("Divide the other way to get %u!\n", prod);
 }
+
+/* notes on added tests:
+        - multiplying results in 0 (which makes sense because the result is too large)
+        - both division result in 0, which I didn't expect because 65535/32767 > 0
+*/
