@@ -27,18 +27,30 @@ It would accept a string of chars as input and parse through the string until it
 ## Set 2
 **1. What are the largest and smallest integer values in the programming environment you use?**
 
-**2. Each BigInt object will need to store the digits that represent the BigInt value. The decision to allow arbitrarily large BigInt values affects the choices for storing digits. Name one method for storing digits that will permit an arbitrary number of digits to be stored. What effect would
-a limit on the number of digits in a BigInt have in the design of the BigInt class?**
+The largest is 32767, and the smallest is -32768
+
+**2. Each BigInt object will need to store the digits that represent the BigInt value. The decision to allow arbitrarily large BigInt values affects the choices for storing digits. Name one method for storing digits that will permit an arbitrary number of digits to be stored. What effect would a limit on the number of digits in a BigInt have in the design of the BigInt class?**
+
+Storing it as a char string would allow for an arbitrary large number of digits. A limit on the number of digits would 
+
 
 **3. Based on your knowledge of pencil-and-paper methods for doing arithmetic, what do you think will be the most difficult arithmetic operation (+, \*, !) to implement for the BigInt class? Why?**
 
+I think division will be the most difficult because its computationally intensive, requiring iterative subtraction or complex algorithms. It also can change the data type from an int to a double (which is not possible in our environment).
+
 **4. Experiment with the calculator. If you enter abcd1234 when a number is expected, what happens? If you enter 1234abcd is the behavior different? What happens if you enter an operator that’s not one of the three that are implemented?**
+
+The second you enter a letter, the calculator stops the input at the last digit entered before the letter. If you start with a letter, it treats the number as zero. If you enter an operator that's not implemented, it reprompts you to enter another operator. 
 
 **5. List as many operations as you can that are performed on integers, but that are not included in the list of BigInt functions and operators above.**
 
+++, --, %
+
 **6. (AB only) What implementation decisions would require providing a destructor, a copy constructor, and an assignment operator?**
 
-**7. Consider the headers for operator! and operator+ given below.**
+This does not work in our environment
+
+**7. Consider the headers for operator- and operator+ given below.**
 
 BigInt operator - (const BigInt & big, int small);
 
@@ -48,4 +60,6 @@ BigInt operator + (const BigInt & big, int small);
 
 // postcondition: returns big + small
 
-**Write the body of operator! assuming that operator+ has been written**
+**Write the body of operator- assuming that operator+ has been written**
+
+
