@@ -33,7 +33,6 @@ The largest is 32767, and the smallest is -32768
 
 Storing it as a char string would allow for an arbitrary large number of digits. A limit on the number of digits would make it easier to design the BigInt class because you could have a fixed size array to store the numbers
 
-
 **3. Based on your knowledge of pencil-and-paper methods for doing arithmetic, what do you think will be the most difficult arithmetic operation (+, \*, !) to implement for the BigInt class? Why?**
 
 I think division will be the most difficult because its computationally intensive, requiring iterative subtraction or complex algorithms. It also can change the data type from an int to a double (which is not possible in our environment).
@@ -62,6 +61,8 @@ BigInt operator + (const BigInt & big, int small);
 
 **Write the body of operator- assuming that operator+ has been written**
 
+It first handles specific scenarios such as when the operands have different signs (converting subtraction to addition) or when the result should be negative by flipping the order of subtraction. For same-sign numbers, it performs digit-by-digit subtraction from right to left, managing borrowing when needed, and constructs the result. After computation, leading zeros are removed, the result is reversed for correct ordering, and a new BigInt with the calculated value is returned.
+
 ## Set 3
 **1. Consider the error handling provided by your C++ system. What does the system do if a file is not present in a call to open? What happens on integer overflow or divide by zero? Determine which method(s) are used and discuss the relative desirability of other options.**
 
@@ -86,12 +87,14 @@ This approach is simple and centralized, but if it only stores the most recent e
 ## Set 4
 **1. Why is a char vector used to store digits rather than an int vector? How will a change in the kind of element stored in the vector affect the implementation of all BigInt member functions.**
 
+A char is a smaller data type than an int, so it can save larger numbers better. A change in the type would change the way you access the digits, but once you have the digits, the operations would be performed the same.
+
 **2. We have chosen an enum for storing the sign of a BigInt. Describe two alternatives or types other than an enum that can be used to represent the sign of a BigInt.**
 
-**3. Write the function GetDigit based on the description and declarations in this section. What kinds of error should you worry about?**
+A boolean with T = positive and F = negative could be used. An integer with 1 for positive and 0 for negative could also be used. 
 
-**4. Why will it be difficult to write the non-member functions operator == and operator < given the current method for accessing digits using GetDigit? Write the function operator == for positive BigInt values assuming that NumDigits and GetDigit are public member functions.**
+**3. Why will it be difficult to write the non-member functions operator == and operator < given the current method for accessing digits using GetDigit? Write the function operator == for positive BigInt values assuming that NumDigits and GetDigit are public member functions.**
 
-**5. (optional) Why is the apvector class a much better choice than the built-in array type given the specification of the BigInt class?**
+Comparison would be difficult because there is no digit by digit access, so it'll be very inefficient.
 
 
