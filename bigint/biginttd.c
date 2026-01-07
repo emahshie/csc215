@@ -15,7 +15,7 @@ main() {
         struct bigint bi2;
         set_bigint("157", &bi1);
         set_bigint("218", &bi2);
-        ASSERT_STR(get_bigint(bi), "1234567");
+        ASSERT_STR(get_bigint(bi1 + bi2), "375");
     }
 
     END_TESTING();
