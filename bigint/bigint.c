@@ -32,3 +32,30 @@ struct bigint *num;
    numstr[num->numdigits+start_pos] = '\0';
    return numstr;
 }
+
+struct bigint add_bigint(struct bigint *num1, struct bigint *num2) {
+    struct bigint result;
+    int carry = 0;
+    int maxDigits = (num1->numdigits > num2->numdigits) ? num1->numdigits : num2->numdigits;
+
+    // Allocate enough space for the result
+    result.digits = alloc(maxDigits + 1); // +1 for possible carry
+    result.numdigits = 0;
+    result.negative = 0; // Assuming positive results for now
+
+    for (int i = 0; i < maxDigits || carry != 0; i++) {
+        int digit1 = (i < num1->numdigits) ? num1->digits[i] - '0' : 0;
+        int digit2 = (i < num2->numdigits) ? num2->digits[i] - '0' : 0;
+
+        int sum = digit1 + digit2 + carry;
+
+        // Store the current digit
+        result.digits[result.numdigits++] = (sum % 10) + '0';
+        carry = sum / 10;
+    }
+
+    // Null-terminate the result manually
+    result.digits[result.numdigits] = '\0';
+
+    return result;
+}
