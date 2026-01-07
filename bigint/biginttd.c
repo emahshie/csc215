@@ -10,5 +10,13 @@ main() {
         ASSERT_STR(get_bigint(bi), "1234567");
     }
 
+    TEST_CASE("Add bigints") {
+        struct bigint bi1;
+        struct bigint bi2;
+        set_bigint("157", &bi1);
+        set_bigint("218", &bi2);
+        ASSERT_STR(get_bigint(bi), "1234567");
+    }
+
     END_TESTING();
 }
