@@ -11,11 +11,11 @@ main() {
     }
 
     TEST_CASE("Add bigints") {
-        struct bigint bi1;
-        struct bigint bi2;
+        struct bigint bi1, bi2, bi3;
         set_bigint("157", &bi1);
         set_bigint("218", &bi2);
-        ASSERT_STR(get_bigint(bi1 + bi2), "375");
+        add_bigints(&bi1, &bi2, &bi3);
+        ASSERT_STR(get_bigint(&bi3), "375");
     }
 
     END_TESTING();
