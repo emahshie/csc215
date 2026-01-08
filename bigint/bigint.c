@@ -33,29 +33,73 @@ struct bigint *num;
    return numstr;
 }
 
-struct bigint add_bigint(struct bigint *num1, struct bigint *num2) {
-    struct bigint result;
-    int carry = 0;
-    int maxDigits = (num1->numdigits > num2->numdigits) ? num1->numdigits : num2->numdigits;
+int len(a,b)
+struct bigint *a;
+struct bigint *b;
+{
+    int alen, blen;
+    alen = a->numdigits;
+    blen = b->numdigits;
+    if (alen > blen) {
+        return alen;
+    } else {
+        return blen;
+    }
+}
 
-    // Allocate enough space for the result
-    result.digits = alloc(maxDigits + 1); // +1 for possible carry
-    result.numdigits = 0;
-    result.negative = 0; // Assuming positive results for now
-
-    for (int i = 0; i < maxDigits || carry != 0; i++) {
-        int digit1 = (i < num1->numdigits) ? num1->digits[i] - '0' : 0;
-        int digit2 = (i < num2->numdigits) ? num2->digits[i] - '0' : 0;
-
-        int sum = digit1 + digit2 + carry;
-
-        // Store the current digit
-        result.digits[result.numdigits++] = (sum % 10) + '0';
-        carry = sum / 10;
+void add_bigints(a, b, res) 
+struct bigint *a;
+struct bigint *b;
+struct bigint *res;
+{
+    int MAX;
+    char *result;
+    int carry;
+    int i;
+    int digit_a;
+    int digit_b;
+    int sum;
+    
+    MAX = len(a,b);
+    result = alloc(MAX + 2);
+    carry = 0;
+    
+    for (i = 0; i < MAX; i++)
+    {
+        digit_a = (i < a->numdigits) ? (a->digits[i] - '0') : 0;
+        digit_b = (i < b->numdigits) ? (b->digits[i] - '0') : 0;
+        sum = digit_a + digit_b + carry;
+        
+        if (sum > 9) {
+            carry = 1;
+            result[i] = (sum - 10) + '0';
+        }
+        else {
+            carry = 0;
+            result[i] = sum + '0';
+        }
+    }
+    
+    if (carry) {
+        result[MAX] = '1';
+        result[MAX+1] = '\0';
+        MAX++;
+    } else {
+        result[MAX] = '\0';
     }
 
-    // Null-terminate the result manually
-    result.digits[result.numdigits] = '\0';
-
-    return result;
+    int p;
+    p = 0;
+    int o;
+    o = MAX - 1;
+    char temp;
+    while (p < o) {
+        temp = result[p];
+        result[p] = result[o];
+        result[o] = temp;
+        p++;
+        o--;
+    }
+    
+    set_bigint(result, res);
 }
