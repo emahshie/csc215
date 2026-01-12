@@ -18,5 +18,25 @@ main() {
         ASSERT_STR(get_bigint(&bi3), "375");
     }
 
+    TEST_CASE("Subtract bigints") {
+        struct bigint bi1, bi2, bi3;
+        set_bigint("157", &bi1);
+        set_bigint("218", &bi2);
+        sub_bigints(&bi1, &bi2, &bi3);
+        ASSERT_STR(get_bigint(&bi3), "-61");
+
+        struct bigint bi1, bi2, bi3;
+        set_bigint("157", &bi1);
+        set_bigint("218", &bi2);
+        sub_bigints(&bi2, &bi1, &bi3);
+        ASSERT_STR(get_bigint(&bi3), "61");
+
+        struct bigint bi1, bi2, bi3;
+        set_bigint("-157", &bi1);
+        set_bigint("218", &bi2);
+        sub_bigints(&bi1, &bi2, &bi3);
+        ASSERT_STR(get_bigint(&bi3), "-375");
+    }
+
     END_TESTING();
 }
