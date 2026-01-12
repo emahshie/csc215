@@ -103,3 +103,11 @@ struct bigint *res;
     
     set_bigint(result, res);
 }
+
+void sub_bigints(a, b, res)
+struct bigint *a;
+struct bigint *b;
+struct bigint *res;
+{
+    
+}
