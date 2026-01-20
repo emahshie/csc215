@@ -17,22 +17,21 @@ char* list_str;
     struct node* p;
     char* ptr;
     char numbuf[10];
-    int i, num, neg;
+    int i, neg;
     
     ptr = list_str;
     p = list;
     *ptr++ = '[';
     
     while (p != NULL) {
-        num = p->num;  
-        neg = num < 0;
-        if (neg) num = -num; 
-        
         i = 0;
+        neg = p->num < 0;
+        if (neg) p->num = -p->num;
+        
         do {
-            numbuf[i++] = '0' + (num % 10);
-            num /= 10;
-        } while (num > 0);
+            numbuf[i++] = '0' + (p->num % 10);
+            p->num /= 10;
+        } while (p->num > 0);
         
         if (neg) numbuf[i++] = '-';
         while (--i >= 0) *ptr++ = numbuf[i];
